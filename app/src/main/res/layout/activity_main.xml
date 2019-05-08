@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/wallet_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="钱包地址" />
+
+    <Button
+        android:id="@+id/create_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建钱包" />
+
+    <Button
+        android:id="@+id/wallet_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的钱包" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="支付0.01" />
+</LinearLayout>
