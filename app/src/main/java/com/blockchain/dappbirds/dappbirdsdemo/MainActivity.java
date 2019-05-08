@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        /**
+         * 获取账户
+         */
         MyApplication.dbWalletManager.getAccount(new DBWalletManager.AccountCallBack() {
             @Override
             public void onError(int errCode, String errInfo) {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(String addr) {
+                //addr:钱包地址
                 createWallet.setVisibility(View.GONE);
                 walletDetail.setVisibility(View.VISIBLE);
                 btnSubmit.setVisibility(View.VISIBLE);
@@ -53,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListener() {
+        /**
+         * 创建钱包账户
+         */
         createWallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(String addr) {
+                        //addr:钱包地址
                         createWallet.setVisibility(View.GONE);
                         walletDetail.setVisibility(View.VISIBLE);
                         btnSubmit.setVisibility(View.VISIBLE);
@@ -79,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * 查看余额和交易明细
+         */
         walletDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,9 +97,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * 统一下单
+         */
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**
+                 * @Context：上下文
+                 * @timestamp：时间戳（精确到秒）
+                 * @signature：签名字符串
+                 * @order_no：订单号
+                 * @amount：支付数量
+                 * @contract_address：合约地址
+                 */
                 MyApplication.dbWalletManager.unitePay(MainActivity.this, "1556543707", "cf38f9b6d2dc07784e727066f2fdac77", System.currentTimeMillis() + "", "0.1", "48628e2aa44a7e7f2d8e9fbe4001d731713789ca", new DBWalletManager.PayCallBack() {
                     @Override
                     public void onError(int errCode, String errInfo) {
