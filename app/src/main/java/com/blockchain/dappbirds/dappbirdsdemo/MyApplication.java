@@ -1,6 +1,7 @@
 package com.blockchain.dappbirds.dappbirdsdemo;
 
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -26,6 +27,10 @@ public class MyApplication extends Application {
          */
         DappBirdsSdk.setIs_debug(true);
         /**
+         * 是否打印日志
+         */
+        DappBirdsSdk.setEnableLog(true);
+        /**
          * @app_id: 平台分配的app_id
          * @openid: 平台分配的openid
          * @chain_type: 公链的类型
@@ -36,5 +41,9 @@ public class MyApplication extends Application {
          * 钱包管理类
          */
         dbWalletManager = dappBirdsSdk.getDbWalletManager();
+    }
+
+    public static void exit() {
+        System.exit(0);
     }
 }
