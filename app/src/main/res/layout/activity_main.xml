@@ -29,5 +29,5 @@
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="支付0.01" />
+        android:text="支付1\t\tONG" />
 </LinearLayout>
