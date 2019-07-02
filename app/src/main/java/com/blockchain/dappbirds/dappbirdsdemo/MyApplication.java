@@ -40,7 +40,7 @@ public class MyApplication extends Application {
         /**
          * 设置openID
          */
-        dappBirdsSdk.setOpenId("5X9qHSUPQgrZQ84mD188sd9kD3WkQN8vx");
+        dappBirdsSdk.setOpenId("5X9qHSUPQgrZQ84mD188sd9kD3WkQN8v5");
         /**
          * 设置公链类型，目前仅支持本体 7
          */

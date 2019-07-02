@@ -12,6 +12,8 @@ import com.blockchain.dappbirds.opensdk.wallet.DBWalletManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.blockchain.dappbirds.dappbirdsdemo.MyApplication.dbWalletManager;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button walletDetail;
     @BindView(R.id.btn_submit)
     Button btnSubmit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 获取账户
          */
-        MyApplication.dbWalletManager.getAccount(new DBWalletManager.AccountCallBack() {
+        dbWalletManager.getAccount(new DBWalletManager.AccountCallBack() {
             @Override
             public void onError(int errCode, String errInfo) {
                 createWallet.setVisibility(View.VISIBLE);
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         createWallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyApplication.dbWalletManager.createAccount(MainActivity.this, new DBWalletManager.AccountCallBack() {
+                dbWalletManager.createAccount(MainActivity.this, new DBWalletManager.AccountCallBack() {
                     @Override
                     public void onError(int errCode, String errInfo) {
                         createWallet.setVisibility(View.VISIBLE);
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         walletDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyApplication.dbWalletManager.openDetail(MainActivity.this);
+                dbWalletManager.openDetail(MainActivity.this);
             }
         });
 
@@ -116,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                  * @amount：支付数量
                  * @contract_address：合约地址
                  */
-                MyApplication.dbWalletManager.unitePay(MainActivity.this, "1556543707", "cf38f9b6d2dc07784e727066f2fdac77", System.currentTimeMillis() + "", "1", "48628e2aa44a7e7f2d8e9fbe4001d731713789ca", new DBWalletManager.PayCallBack() {
+                dbWalletManager.unitePay(MainActivity.this, "1556543707", "cf38f9b6d2dc07784e727066f2fdac77", System.currentTimeMillis() + "", "10", "48628e2aa44a7e7f2d8e9fbe4001d731713789ca", new DBWalletManager.PayCallBack() {
                     @Override
                     public void onError(int errCode, String errInfo) {
                         Toast.makeText(MainActivity.this, "支付失败：" + errInfo, Toast.LENGTH_SHORT).show();
