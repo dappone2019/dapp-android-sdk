@@ -36,11 +36,11 @@ public class MyApplication extends Application {
         /**
          * 设置appId
          */
-        dappBirdsSdk.setAppId("10027");
+        dappBirdsSdk.setAppId("1");
         /**
          * 设置openID
          */
-        dappBirdsSdk.setOpenId("7S4jnunbmyKzVKDgDQRP4hWstL5HiKZEV");
+        dappBirdsSdk.setOpenId("5X9qHSUPQgrZQ84mD188sd9kD3WkQN8vx");
         /**
          * 设置公链类型，目前仅支持本体 7
          */
@@ -48,11 +48,11 @@ public class MyApplication extends Application {
         /**
          * 是否打印日志
          */
-        dappBirdsSdk.setEnableLog(false);
+        dappBirdsSdk.setEnableLog(true);
         /**
          * 是否是测试网络
          */
-        dappBirdsSdk.setEnableTest(false);
+        dappBirdsSdk.setEnableTest(true);
     }
 
     /**
