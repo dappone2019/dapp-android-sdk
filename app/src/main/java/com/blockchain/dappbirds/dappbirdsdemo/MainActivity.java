@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import com.blockchain.dappbirds.opensdk.wallet.DBWalletManager;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -119,7 +122,21 @@ public class MainActivity extends AppCompatActivity {
                  * @amount：支付数量
                  * @contract_address：合约地址
                  */
-                dbWalletManager.unitePay(MainActivity.this, "1556543707", "cf38f9b6d2dc07784e727066f2fdac77", System.currentTimeMillis() + "", "10", "48628e2aa44a7e7f2d8e9fbe4001d731713789ca", new DBWalletManager.PayCallBack() {
+//                dbWalletManager.unitePay(MainActivity.this, "1556543707", "cf38f9b6d2dc07784e727066f2fdac77", System.currentTimeMillis() + "", "1", "48628e2aa44a7e7f2d8e9fbe4001d731713789ca", new DBWalletManager.PayCallBack() {
+//                    @Override
+//                    public void onError(int errCode, String errInfo) {
+//                        Toast.makeText(MainActivity.this, "支付失败：" + errInfo, Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onSuccess() {
+//                        Toast.makeText(MainActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
+                String md5 = MD5("39" + System.currentTimeMillis() / 1000 + "980d12ed0fc1149ce0d2cd7c7998644e");
+
+                dbWalletManager.unitePay(MainActivity.this, System.currentTimeMillis() / 1000 + "", md5, System.currentTimeMillis() + "", "1", "Contract9VyUyhk4NEpsus226eTb6c87YxFMo673fMp4oM4N7oWh", new DBWalletManager.PayCallBack() {
                     @Override
                     public void onError(int errCode, String errInfo) {
                         Toast.makeText(MainActivity.this, "支付失败：" + errInfo, Toast.LENGTH_SHORT).show();
@@ -132,6 +149,25 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public String MD5(String pwd) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            MessageDigest digest = MessageDigest.getInstance("md5");
+            byte[] bytes = digest.digest(pwd.getBytes(StandardCharsets.UTF_8));
+            for (byte b : bytes) {
+                int number = b & 255;
+                String numberString = Integer.toHexString(number);
+                if (numberString.length() == 1) {
+                    numberString = 0 + numberString;
+                }
+                sb.append(numberString);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
     }
 
     @Override

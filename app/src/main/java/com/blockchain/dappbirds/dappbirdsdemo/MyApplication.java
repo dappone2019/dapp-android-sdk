@@ -6,6 +6,7 @@ import android.app.Application;
 import com.blockchain.dappbirds.opensdk.DappBirdsSdk;
 import com.blockchain.dappbirds.opensdk.wallet.DBWalletManager;
 
+
 public class MyApplication extends Application {
 
     public static DappBirdsSdk dappBirdsSdk;
@@ -36,15 +37,18 @@ public class MyApplication extends Application {
         /**
          * 设置appId
          */
-        dappBirdsSdk.setAppId("1");
+        dappBirdsSdk.setAppId("39");
+//        dappBirdsSdk.setAppId("1");
         /**
          * 设置openID
          */
-        dappBirdsSdk.setOpenId("5X9qHSUPQgrZQ84mD188sd9kD3WkQN8vx");
+        dappBirdsSdk.setOpenId("bToKcBXMarLnVxdP4AdVaGg7jHcxQfjic");
+//        dappBirdsSdk.setOpenId("5X9qHSUPQgrZQ84mD188sd9kD3WkQN8vx");
         /**
          * 设置公链类型，目前仅支持本体 7
          */
-        dappBirdsSdk.setChainType("7");
+        dappBirdsSdk.setChainType("10");
+//        dappBirdsSdk.setChainType("7");
         /**
          * 是否打印日志
          */
