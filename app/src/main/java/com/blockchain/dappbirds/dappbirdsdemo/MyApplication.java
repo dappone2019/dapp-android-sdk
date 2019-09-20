@@ -1,6 +1,7 @@
 package com.blockchain.dappbirds.dappbirdsdemo;
 
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import com.blockchain.dappbirds.opensdk.DappBirdsSdk;
@@ -9,7 +10,9 @@ import com.blockchain.dappbirds.opensdk.wallet.DBWalletManager;
 
 public class MyApplication extends Application {
 
+    @SuppressLint("StaticFieldLeak")
     public static DappBirdsSdk dappBirdsSdk;
+    @SuppressLint("StaticFieldLeak")
     public static DBWalletManager dbWalletManager;
 
     @Override

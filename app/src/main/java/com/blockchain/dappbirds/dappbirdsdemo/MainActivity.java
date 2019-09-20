@@ -12,28 +12,21 @@ import com.blockchain.dappbirds.opensdk.wallet.DBWalletManager;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import static com.blockchain.dappbirds.dappbirdsdemo.MyApplication.dbWalletManager;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.wallet_address)
-    Button walletAddress;
-    @BindView(R.id.create_wallet)
-    Button createWallet;
-    @BindView(R.id.wallet_detail)
-    Button walletDetail;
-    @BindView(R.id.btn_submit)
-    Button btnSubmit;
+    private Button walletAddress;
+    private Button createWallet;
+    private Button walletDetail;
+    private Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        initView();
         initData();
         setListener();
     }
@@ -176,5 +169,12 @@ public class MainActivity extends AppCompatActivity {
             MyApplication.exit();
         }
         return true;
+    }
+
+    private void initView() {
+        walletAddress = findViewById(R.id.wallet_address);
+        createWallet = findViewById(R.id.create_wallet);
+        walletDetail = findViewById(R.id.wallet_detail);
+        btnSubmit = findViewById(R.id.btn_submit);
     }
 }
