@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import com.blockchain.dappbirds.opensdk.wallet.DBWalletManager;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 import static com.blockchain.dappbirds.dappbirdsdemo.MyApplication.dbWalletManager;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -140,6 +140,20 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
                     }
                 });
+//
+//                String time = System.currentTimeMillis() / 1000 + "";
+//                String md5 = MD5("46" + time + "886eb801f59f75cb95ad6b0eff0cc141");
+//                dbWalletManager.unitePay(MainActivity.this, time, md5, time + "46", "1", "ceshiyomm112", new DBWalletManager.PayCallBack() {
+//                    @Override
+//                    public void onError(int errCode, String errInfo) {
+//                        Toast.makeText(MainActivity.this, "支付失败：" + errInfo, Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onSuccess() {
+//                        Toast.makeText(MainActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
             }
         });
     }
